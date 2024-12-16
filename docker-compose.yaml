@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    container_name: postgres_orders
+    image: "postgres:latest"
+    environment:
+      POSTGRES_DB: orders_dbb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: j@vacefer2005
+    ports:
+      - "2000:5432"
+    volumes:
+      - orders_dbb:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    container_name: redis-container2
+    ports:
+      - "6380:6379"
+
+volumes:
+  orders_dbb:

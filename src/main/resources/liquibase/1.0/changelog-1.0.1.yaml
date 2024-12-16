@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create order_items table
+      author: Cefer Mehtiyev
+      changes:
+        - createTable:
+            tableName: order_items
+            columns:
+              - column:
+                  name: order_item_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price_per_unit
+                  type: DECIMAL(10, 4)
+                  constraints:
+                    nullable: false
+
+
+  - changeSet:
+      id: orderitem foreign key
+      author: Cefer Mehtiyev
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: order_items
+            baseColumnNames: order_id
+            constraintName: fk_orderitems_order
+            referencedTableName: orders
+            referencedColumnNames: id

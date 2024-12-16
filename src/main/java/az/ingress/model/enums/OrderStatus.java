@@ -1,5 +1,5 @@
 package az.ingress.model.enums;
 
-public enum Status {
+public enum OrderStatus {
     PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED;
 }
