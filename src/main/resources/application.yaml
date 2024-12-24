@@ -1,2 +1,17 @@
 server:
-  port: 8080
+  port: 1005
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:2000/orders_dbb
+    username: postgres
+    password: j@vacefer2005
+  jpa:
+    open-in-view: false
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yaml
+
+client:
+  urls:
+    ms-product: http://localhost:1004
+
